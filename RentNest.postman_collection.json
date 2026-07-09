@@ -4,13 +4,34 @@
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
-    { "key": "baseUrl", "value": "http://localhost:5000/api" },
-    { "key": "tenantToken", "value": "" },
-    { "key": "landlordToken", "value": "" },
-    { "key": "adminToken", "value": "" },
-    { "key": "propertyId", "value": "" },
-    { "key": "categoryId", "value": "" },
-    { "key": "rentalRequestId", "value": "" }
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api"
+    },
+    {
+      "key": "tenantToken",
+      "value": ""
+    },
+    {
+      "key": "landlordToken",
+      "value": ""
+    },
+    {
+      "key": "adminToken",
+      "value": ""
+    },
+    {
+      "key": "propertyId",
+      "value": ""
+    },
+    {
+      "key": "categoryId",
+      "value": ""
+    },
+    {
+      "key": "rentalRequestId",
+      "value": ""
+    }
   ],
   "item": [
     {
@@ -20,7 +41,12 @@
           "name": "Register Tenant",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "url": "{{baseUrl}}/auth/register",
             "body": {
               "mode": "raw",
@@ -32,7 +58,12 @@
           "name": "Register Landlord",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "url": "{{baseUrl}}/auth/register",
             "body": {
               "mode": "raw",
@@ -44,7 +75,12 @@
           "name": "Login",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "url": "{{baseUrl}}/auth/login",
             "body": {
               "mode": "raw",
@@ -56,7 +92,12 @@
           "name": "Get Me",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{tenantToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tenantToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/auth/me"
           }
         }
@@ -67,18 +108,30 @@
       "item": [
         {
           "name": "Get All Categories",
-          "request": { "method": "GET", "url": "{{baseUrl}}/categories" }
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/categories"
+          }
         },
         {
           "name": "Create Category (Admin)",
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": "{{baseUrl}}/categories",
-            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Apartment\"\n}" }
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Apartment\"\n}"
+            }
           }
         }
       ]
@@ -95,15 +148,24 @@
         },
         {
           "name": "Get Property By Id",
-          "request": { "method": "GET", "url": "{{baseUrl}}/properties/{{propertyId}}" }
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/properties/{{propertyId}}"
+          }
         },
         {
           "name": "Create Property (Landlord)",
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{landlordToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{landlordToken}}"
+              }
             ],
             "url": "{{baseUrl}}/properties",
             "body": {
@@ -117,18 +179,32 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{landlordToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{landlordToken}}"
+              }
             ],
             "url": "{{baseUrl}}/properties/{{propertyId}}",
-            "body": { "mode": "raw", "raw": "{\n  \"price\": 550\n}" }
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 550\n}"
+            }
           }
         },
         {
           "name": "Delete Property (Landlord)",
           "request": {
             "method": "DELETE",
-            "header": [{ "key": "Authorization", "value": "Bearer {{landlordToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{landlordToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/properties/{{propertyId}}"
           }
         },
@@ -136,7 +212,12 @@
           "name": "Get My Properties (Landlord)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{landlordToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{landlordToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/properties/landlord/my-properties"
           }
         }
@@ -150,8 +231,14 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{tenantToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tenantToken}}"
+              }
             ],
             "url": "{{baseUrl}}/rentals",
             "body": {
@@ -164,7 +251,12 @@
           "name": "Get My Rental Requests (Tenant)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{tenantToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tenantToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/rentals"
           }
         },
@@ -172,7 +264,12 @@
           "name": "Get Requests For My Properties (Landlord)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{landlordToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{landlordToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/rentals/landlord/requests"
           }
         },
@@ -181,18 +278,32 @@
           "request": {
             "method": "PATCH",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{landlordToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{landlordToken}}"
+              }
             ],
             "url": "{{baseUrl}}/rentals/landlord/requests/{{rentalRequestId}}",
-            "body": { "mode": "raw", "raw": "{\n  \"status\": \"APPROVED\"\n}" }
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"APPROVED\"\n}"
+            }
           }
         },
         {
           "name": "Get Rental Request By Id",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{tenantToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tenantToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/rentals/{{rentalRequestId}}"
           }
         }
@@ -206,8 +317,14 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{tenantToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tenantToken}}"
+              }
             ],
             "url": "{{baseUrl}}/payments/create",
             "body": {
@@ -220,7 +337,12 @@
           "name": "Confirm Payment Manually (Dev/Test)",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Authorization", "value": "Bearer {{tenantToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tenantToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/payments/confirm/{{rentalRequestId}}"
           }
         },
@@ -228,7 +350,12 @@
           "name": "Get My Payments",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{tenantToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tenantToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/payments"
           }
         }
@@ -242,8 +369,14 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{tenantToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tenantToken}}"
+              }
             ],
             "url": "{{baseUrl}}/reviews",
             "body": {
@@ -254,7 +387,10 @@
         },
         {
           "name": "Get Reviews For Property",
-          "request": { "method": "GET", "url": "{{baseUrl}}/reviews/property/{{propertyId}}" }
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reviews/property/{{propertyId}}"
+          }
         }
       ]
     },
@@ -265,7 +401,12 @@
           "name": "Get All Users",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/admin/users"
           }
         },
@@ -274,18 +415,32 @@
           "request": {
             "method": "PATCH",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": "{{baseUrl}}/admin/users/:id/status",
-            "body": { "mode": "raw", "raw": "{\n  \"status\": \"BANNED\"\n}" }
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"BANNED\"\n}"
+            }
           }
         },
         {
           "name": "Get All Properties (Admin)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/admin/properties"
           }
         },
@@ -293,7 +448,12 @@
           "name": "Get All Rental Requests (Admin)",
           "request": {
             "method": "GET",
-            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": "{{baseUrl}}/admin/rentals"
           }
         }
