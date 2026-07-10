@@ -20,7 +20,6 @@ const createPaymentSession = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// Stripe webhook - verifies signature using the raw request body
 const handleStripeWebhook = catchAsync(async (req: Request, res: Response) => {
   const sig = req.headers['stripe-signature'] as string;
   let event: Stripe.Event;
@@ -43,7 +42,6 @@ const handleStripeWebhook = catchAsync(async (req: Request, res: Response) => {
   res.status(200).json({ received: true });
 });
 
-// Dev-friendly manual confirm (use if webhook isn't set up yet, e.g. local testing)
 const confirmPaymentManually = catchAsync(async (req: Request, res: Response) => {
   const result = await PaymentService.confirmPaymentManually(req.params.rentalRequestId);
   sendResponse(res, {
