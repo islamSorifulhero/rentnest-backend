@@ -5,7 +5,6 @@ import config from '../../config';
 
 const stripe = new Stripe(config.stripe.secret_key);
 
-// Tenant creates a Stripe Checkout session for an APPROVED rental request
 const createPaymentSession = async (tenantId: string, rentalRequestId: string) => {
   const rental = await prisma.rentalRequest.findUnique({
     where: { id: rentalRequestId },
@@ -67,7 +66,6 @@ const createPaymentSession = async (tenantId: string, rentalRequestId: string) =
   return { checkoutUrl: session.url, payment };
 };
 
-// Called by Stripe webhook when checkout.session.completed fires
 const confirmPaymentByWebhook = async (session: Stripe.Checkout.Session) => {
   const rentalRequestId = session.metadata?.rentalRequestId;
   if (!rentalRequestId) return;
@@ -91,7 +89,6 @@ const confirmPaymentByWebhook = async (session: Stripe.Checkout.Session) => {
   });
 };
 
-// Manual confirm endpoint (useful for local/dev testing without full webhook setup)
 const confirmPaymentManually = async (rentalRequestId: string) => {
   const payment = await prisma.payment.findUnique({ where: { rentalRequestId } });
   if (!payment) {

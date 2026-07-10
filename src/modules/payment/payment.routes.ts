@@ -6,9 +6,6 @@ import { PaymentController } from './payment.controller';
 
 const router = Router();
 
-// NOTE: the raw-body webhook route (/api/payments/webhook) is registered
-// separately in app.ts BEFORE the json body-parser, since Stripe needs the raw body.
-
 router.post(
   '/create',
   auth('TENANT'),
