@@ -2,6 +2,15 @@
 
 Rental property marketplace backend. Node.js + Express + TypeScript + PostgreSQL (Prisma) + JWT Auth + Stripe payments.
 
+
+#### Backend Repo: https://github.com/islamSorifulhero/rentnest-backend
+#### Live API: https://rentnest-backend-psi.vercel.app
+#### API Docs: https://documenter.getpostman.com/view/54865231/2sBY4LRMX7
+#### Demo Video: https://drive.google.com/file/d/1l1TtohRfXdwNYuHE5JD56kU_x2ICp7s3/view?usp=sharing
+#### Admin Email: admin@rentnest.com
+#### Admin Password: admin123
+
+
 ## Project Structure
 
 ```
