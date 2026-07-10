@@ -5,7 +5,6 @@ const createReview = async (
   tenantId: string,
   payload: { propertyId: string; rating: number; comment?: string }
 ) => {
-  // Tenant may only review a property after they've had a COMPLETED rental there
   const completedRental = await prisma.rentalRequest.findFirst({
     where: {
       tenantId,
