@@ -28,7 +28,7 @@ prisma/
 RentNest.postman_collection.json  -> import into Postman for full API docs
 ```
 
-## 1. Setup (do this first)
+## 1. Setup
 
 ```bash
 npm install
@@ -75,7 +75,7 @@ It will print a `whsec_...` value — put that into `STRIPE_WEBHOOK_SECRET` in `
 If you don't want to set up the CLI right now, there's also a manual dev-only endpoint:
 `POST /api/payments/confirm/:rentalRequestId` (tenant, auth required) — marks the payment COMPLETED and rental ACTIVE without needing a real webhook. Useful for your demo video, but mention in the video that the real flow uses the Stripe webhook.
 
-## 3. How the Rental + Payment flow works (for your demo video)
+## 3. How the Rental + Payment flow works
 
 1. Tenant registers/logs in → browses `/api/properties` → submits `/api/rentals` (status `PENDING`)
 2. Landlord logs in → sees it in `/api/rentals/landlord/requests` → `PATCH /api/rentals/landlord/requests/:id` with `{"status":"APPROVED"}`
@@ -113,6 +113,6 @@ Import `RentNest.postman_collection.json` into Postman. It has every endpoint pr
 ## Admin Credentials (after seeding)
 
 ```
-Email: (whatever you set as ADMIN_EMAIL in .env)
-Password: (whatever you set as ADMIN_PASSWORD in .env)
+Email: admin@rentnest.com
+Password: admin123
 ```
